@@ -1,1 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
 
+	<head>
+		<link rel="stylesheet" href="static/style.css">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta charset="UTF-8">
+		<title>Funny Chatbot</title>
+	</head>
+
+	<body>
+		<div class="box">
+		
+			<div class="head">
+			
+			</div>	
+
+			<div class="body">
+			   
+				{% for con in conversation %}
+				
+					<div class="send">
+            					{{con[0]}}
+        		   		</div>
+        		   		<div class="receive">
+            					{{con[1]}}
+        		   		</div>
+				{% endfor %}
+		
+			</div>
+				
+			<div class="foot">
+				<form action="/" method="post">
+					<input type="text" placeholder="send a message" name="send"/>
+					<button type="submit">send</button>
+				</form>						
+			</div>
+		</div>
+		
+	</body>
+
+</html>
