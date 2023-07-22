@@ -1,6 +1,7 @@
 .box{
 	height: 100%;
 	width: 100%;
+	font-size: 20px;
 }
 
 .head{
@@ -48,3 +49,14 @@ button{
 	right: 15%;
 }
 
+
+.intro_head{
+	text-align: center;
+}
+
+.intro_body{
+	text-align: center;
+	& h4{
+		
+	}
+}
