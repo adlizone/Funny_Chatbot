@@ -4,8 +4,34 @@
 	<head>
 		<link rel="stylesheet" href="static/style.css">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
 		<meta charset="UTF-8">
 		<title>Funny Chatbot</title>
+
+		<script>
+			$SCRIPT_ROOT = {{ request.script_root|tojson }};
+		</script>
+
+		<script>
+			$(function() {
+				$('button').click(function() {
+					$.ajax({
+						url: '/',
+						data: $('form').serialize(),
+						type: 'POST',
+						success: function(response) {
+							const para = document.createElement("p");
+							const node = document.createTextNode(response);
+							para.appendChild(node)
+							document.getElementById("div1").appendChild(para).className="send";
+						},
+						error: function(error){
+							console.log(error);
+						}
+			      		});
+				});
+			});
+		</script>
 	</head>
 
 	<body>
@@ -15,24 +41,16 @@
 			
 			</div>	
 
-			<div class="body">
+			<div id="div1" class="body" class="send">
 			   
-				{% for con in conversation %}
-				
-					<div class="send">
-            					{{con[0]}}
-        		   		</div>
-        		   		<div class="receive">
-            					{{con[1]}}
-        		   		</div>
-				{% endfor %}
+				<p id="response"></p>
 		
 			</div>
 				
 			<div class="foot">
-				<form action="/" method="post">
+				<form>				
 					<input type="text" placeholder="send a message" name="send"/>
-					<button type="submit">send</button>
+					<button id="btnSubmit" type="button">send</button>
 				</form>						
 			</div>
 		</div>

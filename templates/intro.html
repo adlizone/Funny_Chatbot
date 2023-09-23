@@ -7,6 +7,24 @@
 		<meta charset="UTF-8">
 		<title>Funny Chatbot</title>
 	</head>
+		
+		<script>
+			$(function() {
+				$('button').click(function() {
+					$.ajax({
+						url: '/',
+						data: $('form').serialize(),
+						type: 'POST',
+						success: function(response) {
+							document.getElementById("response").innerHTML=response;
+						},
+						error: function(error){
+							console.log(error);
+						}
+			      		});
+				});
+			});
+		</script>
 
 	<body>
 		<div class="box">
@@ -22,9 +40,9 @@
 			</div>
 				
 			<div class="foot">
-				<form action="/" method="post">
+				<form>
 					<input type="text" placeholder="send a message" name="send"/>
-					<button type="submit">send</button>
+					<button type="button">send</button>
 				</form>						
 			</div>
 		</div>
