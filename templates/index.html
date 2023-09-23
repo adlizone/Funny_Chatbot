@@ -8,30 +8,7 @@
 		<meta charset="UTF-8">
 		<title>Funny Chatbot</title>
 
-		<script>
-			$SCRIPT_ROOT = {{ request.script_root|tojson }};
-		</script>
-
-		<script>
-			$(function() {
-				$('button').click(function() {
-					$.ajax({
-						url: '/',
-						data: $('form').serialize(),
-						type: 'POST',
-						success: function(response) {
-							const para = document.createElement("p");
-							const node = document.createTextNode(response);
-							para.appendChild(node)
-							document.getElementById("div1").appendChild(para).className="send";
-						},
-						error: function(error){
-							console.log(error);
-						}
-			      		});
-				});
-			});
-		</script>
+		<script src="{{url_for('static', filename='javascript.js')}}"></script>
 	</head>
 
 	<body>
@@ -41,9 +18,8 @@
 			
 			</div>	
 
-			<div id="div1" class="body" class="send">
+			<div id="div1" class="body">
 			   
-				<p id="response"></p>
 		
 			</div>
 				

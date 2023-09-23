@@ -1,9 +1,9 @@
 import openai
 
-from flask import Flask, jsonify, render_template, request, redirect, url_for
+from flask import Flask, jsonify, render_template, request, redirect, url_for,app
 
 app = Flask(__name__)
-openai.api_key = "ENTER YOUR API-KEY"
+openai.api_key = "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"
 
 conversation = []
 
@@ -27,7 +27,8 @@ def index():
          
     return render_template("index.html", conversation=conversation)
 
-
+if __name__ == "__main__":
+    app.run(debug=True)
 
 
 
