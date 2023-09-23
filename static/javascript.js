@@ -14,6 +14,10 @@ function add_response(response){
 
 $(function() {
 $('button').click(function() {
+	
+	document.getElementById("intro").innerHTML = "";
+	document.getElementById("intro1").innerHTML = "";
+	
 	$.ajax({
 		url: '/',
 		data: $('form').serialize(),
